@@ -35,12 +35,12 @@ class LaporanPenjualanService
             ->join('produk', 'produk.id', '=', 'item_penjualan.produk_id')
             ->whereDate('penjualan.created_at', Carbon::today())
             ->where('penjualan.status', 'COMPLETED')
-            ->groupBy('produk.id', 'produk.nama')
             ->select(
                 'produk.nama',
                 'produk.stok',
                 DB::raw('SUM(item_penjualan.kuantitas) as total_terjual')
             )
+            ->groupBy('produk.id', 'produk.nama', 'produk.stok')
             ->orderByDesc('total_terjual')
             ->limit($limit)
             ->get();
