@@ -60,7 +60,7 @@
 
                 <a class="nav-link me-3 {{ Request::is('tentang') ? 'active' : '' }}"
                     href="{{ route('tentang') }}">
-                    Tentang
+                    Profile
                 </a>
 
                 <form action="{{ route('logout') }}" method="POST" class="m-0">
