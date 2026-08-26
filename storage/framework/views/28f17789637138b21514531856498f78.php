@@ -60,7 +60,7 @@
 
                 <a class="nav-link me-3 <?php echo e(Request::is('tentang') ? 'active' : ''); ?>"
                     href="<?php echo e(route('tentang')); ?>">
-                    Tentang
+                    Profile
                 </a>
 
                 <form action="<?php echo e(route('logout')); ?>" method="POST" class="m-0">

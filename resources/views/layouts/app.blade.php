@@ -12,12 +12,11 @@
 <div class="container">
 
     @if(session('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-primary">
             {{ session('success') }}
         </div>
     @endif
 
-    <!--Isi konten yang kita kirimkan dari views lain-->
     @yield('content')
 
 </div>

@@ -12,13 +12,12 @@
 <div class="container">
 
     <?php if(session('success')): ?>
-        <div class="alert alert-success">
+        <div class="alert alert-primary">
             <?php echo e(session('success')); ?>
 
         </div>
     <?php endif; ?>
 
-    <!--Isi konten yang kita kirimkan dari views lain-->
     <?php echo $__env->yieldContent('content'); ?>
 
 </div>
