@@ -433,7 +433,6 @@ body {
          TODAY'S SUMMARY
     ====================================================== --}}
 
-    @can('viewAny', App\Models\User::class)
 
     <h3 class="section-title">
         Ringkasan Hari Ini
@@ -564,7 +563,6 @@ body {
 
     </div>
 
-    @endcan
 
 
 

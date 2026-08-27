@@ -429,7 +429,6 @@ body {
 
     
 
-    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('viewAny', App\Models\User::class)): ?>
 
     <h3 class="section-title">
         Ringkasan Hari Ini
@@ -556,7 +555,6 @@ body {
 
     </div>
 
-    <?php endif; ?>
 
 
 

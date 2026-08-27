@@ -6,6 +6,9 @@
 
 <?php echo $__env->make('layouts.navbar', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 <style>
 
 /* =========================
@@ -291,6 +294,10 @@ body {
     font-size: 17px;
 }
 
+.contact-icon i {
+    font-size: 19px;
+}
+
 
 /* =========================
    CONTACT TEXT
@@ -403,7 +410,8 @@ body {
     <div class="biodata-header">
 
         <div class="biodata-label">
-            👤 Profile
+            <i class="fas fa-user"></i>
+            Biodata
         </div>
 
         <h1 class="biodata-title">
@@ -454,7 +462,7 @@ body {
                 <div class="section-title">
 
                     <div class="section-icon">
-                        👋
+                        <i class="fas fa-hand-wave"></i>
                     </div>
 
                     Tentang Saya
@@ -485,7 +493,7 @@ body {
                 <div class="section-title">
 
                     <div class="section-icon">
-                        📇
+                        <i class="fas fa-address-card"></i>
                     </div>
 
                     Kontak
@@ -503,7 +511,7 @@ body {
                     >
 
                         <div class="contact-icon">
-                            📧
+                            <i class="fas fa-envelope"></i>
                         </div>
 
                         <div class="contact-label">
@@ -525,14 +533,14 @@ body {
 
                     
                     <a
-                        href="https://wa.me/628xxxxxxxxxx"
+                        href="https://wa.me/6285861471529"
                         class="contact-card"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
 
                         <div class="contact-icon">
-                            📱
+                            <i class="fab fa-whatsapp"></i>
                         </div>
 
                         <div class="contact-label">
@@ -561,7 +569,7 @@ body {
                     >
 
                         <div class="contact-icon">
-                            📸
+                            <i class="fab fa-instagram"></i>
                         </div>
 
                         <div class="contact-label">
