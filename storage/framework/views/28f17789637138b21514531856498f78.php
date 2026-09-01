@@ -34,6 +34,13 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link <?php echo e(Request::is('jenis') ? 'active' : ''); ?>"
+                        href="<?php echo e(route('jenis.index')); ?>">
+                        Jenis
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link <?php echo e(Request::is('produk') ? 'active' : ''); ?>"
                         href="<?php echo e(route('produk.index')); ?>">
                         Produk
@@ -44,13 +51,6 @@
                     <a class="nav-link <?php echo e(Request::is('penjualan') ? 'active' : ''); ?>"
                         href="<?php echo e(route('penjualan.index')); ?>">
                         Penjualan
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link <?php echo e(Request::is('jenis') ? 'active' : ''); ?>"
-                        href="<?php echo e(route('jenis.index')); ?>">
-                        Jenis
                     </a>
                 </li>
 
