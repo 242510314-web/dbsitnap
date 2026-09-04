@@ -4,8 +4,6 @@
 
 @section('content')
 
-@include('layouts.navbar')
-
 <style>
     body{
         background:#f4f8ff;
@@ -71,15 +69,34 @@
         padding:5px 12px;
         border-radius:20px;
     }
+
+    @media print {
+        body { background:#fff; }
+        .no-print { display:none !important; }
+        .container { max-width:none; margin:0 !important; padding:0; }
+        .receipt-card { max-width:80mm; border-radius:0; box-shadow:none; }
+        .receipt-header { background:#fff; color:#111; padding:8px 0; }
+        .receipt-header h2 { font-family:Georgia, serif; font-size:20px; letter-spacing:1px; }
+        .receipt-header small { color:#555; }
+        .receipt-body { padding:8px 4px; }
+        .table { font-size:11px; }
+        .table th, .table td { padding:4px 2px; }
+        .total-box { background:#fff; border-radius:0; padding:8px 0; font-size:14px; }
+        @page { size:80mm auto; margin:0; }
+    }
 </style>
 
 <div class="container mt-4 mb-5">
 
-    <div class="receipt-card">
+    <div class="no-print">
+        @include('layouts.navbar')
+    </div>
+
+    <div class="receipt-card mt-4">
 
         <div class="receipt-header">
-            <h2>🧾 Detail Penjualan</h2>
-            <small>Sistem Point of Sale</small>
+            <h2>SUGAR BLOOM</h2>
+            <small>Invoice Penjualan</small>
         </div>
 
         <div class="receipt-body">
@@ -194,7 +211,13 @@
 
             </div>
 
-            <div class="text-center mt-4">
+            <div class="text-center mt-4 no-print">
+
+                <button type="button" class="btn btn-success px-4 me-2" onclick="window.print()">
+
+                    Cetak Struk
+
+                </button>
 
                 <a href="{{ route('penjualan.index') }}"
                     class="btn btn-primary px-4">

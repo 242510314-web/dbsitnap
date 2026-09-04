@@ -603,13 +603,13 @@ body {
                 
                 <img
                     src="<?php echo e(asset('images/profile.jpg')); ?>"
-                    alt="Foto Mega wati putri"
+                    alt="Foto Sitnap"
                 >
 
             </div>
 
             <h2 class="profile-name">
-                Mega wati putri
+                Siti Nafisah Al Azizah
             </h2>
 
             <p class="profile-role">
