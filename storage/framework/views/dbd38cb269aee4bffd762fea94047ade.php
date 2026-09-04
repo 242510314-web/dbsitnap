@@ -1,12 +1,12 @@
-@extends('layouts.app')
 
-@section('title', 'Biodata')
 
-@section('content')
+<?php $__env->startSection('title', 'Biodata'); ?>
 
-@include('layouts.navbar')
+<?php $__env->startSection('content'); ?>
 
-{{-- Font Awesome --}}
+<?php echo $__env->make('layouts.navbar', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
@@ -572,9 +572,7 @@ body {
 <div class="container biodata-page">
 
 
-    {{-- =========================
-         HEADER
-    ========================== --}}
+    
     <div class="biodata-header">
 
         <div class="biodata-label">
@@ -593,29 +591,25 @@ body {
     </div>
 
 
-    {{-- =========================
-         MAIN CARD
-    ========================== --}}
+    
     <div class="biodata-card">
 
 
-        {{-- =========================
-             PROFILE
-        ========================== --}}
+        
         <div class="profile-section">
 
             <div class="profile-avatar">
 
-                {{-- FOTO PROFILE --}}
+                
                 <img
-                    src="{{ asset('images/profile.jpg') }}"
-                    alt="Foto Sitnap"
+                    src="<?php echo e(asset('images/profile.jpg')); ?>"
+                    alt="Foto Mega wati putri"
                 >
 
             </div>
 
             <h2 class="profile-name">
-                Siti Nafisah Al Azizah
+                Mega wati putri
             </h2>
 
             <p class="profile-role">
@@ -646,9 +640,7 @@ body {
         <div class="biodata-content">
 
 
-            {{-- =========================
-                 TENTANG SAYA
-            ========================== --}}
+            
             <div class="bio-section">
 
                 <div class="section-title">
@@ -696,12 +688,10 @@ body {
             </div>
 
 
-            {{-- =========================
-                 FOOTER
-            ========================== --}}
+            
             <div class="bio-footer">
 
-                © {{ date('Y') }} Sugar Bloom · Web Developer
+                © <?php echo e(date('Y')); ?> Sugar Bloom · Web Developer
 
             </div>
 
@@ -734,4 +724,5 @@ body {
 </div>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\laragon\www\siti\dbsitnap\resources\views\tentang.blade.php ENDPATH**/ ?>

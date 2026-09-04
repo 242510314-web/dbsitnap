@@ -77,4 +77,4 @@
 
     </div>
 
-</nav><?php /**PATH C:\laragon\www\dbsitnap\resources\views/layouts/navbar.blade.php ENDPATH**/ ?>
+</nav><?php /**PATH C:\laragon\www\siti\dbsitnap\resources\views/layouts/navbar.blade.php ENDPATH**/ ?>

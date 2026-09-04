@@ -1,18 +1,29 @@
 
 
-<?php $__env->startSection('title', 'Users'); ?>
+<?php $__env->startSection('title', 'Penjualan'); ?>
 
 <?php $__env->startSection('content'); ?>
 
 <?php echo $__env->make('layouts.navbar', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
 <style>
+    /* =========================
+       BACKGROUND
+    ========================= */
     body {
-        background: linear-gradient(135deg, #eaf4ff 0%, #dcecff 50%, #f5f9ff 100%);
+        background: linear-gradient(
+            135deg,
+            #eaf4ff 0%,
+            #dcecff 50%,
+            #f5f9ff 100%
+        );
         min-height: 100vh;
     }
 
-    .users-page {
+    /* =========================
+       PAGE WRAPPER
+    ========================= */
+    .penjualan-page {
         padding: 35px 0 60px;
     }
 
@@ -23,8 +34,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 28px;
         gap: 20px;
+        margin-bottom: 28px;
     }
 
     .page-label {
@@ -58,7 +69,7 @@
     /* =========================
        CREATE BUTTON
     ========================= */
-    .create-user-btn {
+    .create-penjualan-btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -76,22 +87,34 @@
         white-space: nowrap;
     }
 
-    .create-user-btn:hover {
+    .create-penjualan-btn:hover {
         color: white;
         transform: translateY(-3px);
         background: linear-gradient(135deg, #4d92da, #367fc7);
         box-shadow: 0 12px 25px rgba(67, 136, 206, .40);
     }
 
-    .create-user-btn span {
+    .create-penjualan-btn span {
         font-size: 19px;
         line-height: 1;
     }
 
     /* =========================
+       ALERT
+    ========================= */
+    .custom-alert {
+        border: none;
+        border-radius: 14px;
+        margin-bottom: 20px;
+        background: #fff0f2;
+        color: #c66a76;
+        box-shadow: 0 5px 15px rgba(198, 106, 118, .10);
+    }
+
+    /* =========================
        MAIN CARD
     ========================= */
-    .users-card {
+    .penjualan-card {
         background: rgba(255, 255, 255, .96);
         border: 1px solid #d6e6f7;
         border-radius: 22px;
@@ -104,7 +127,7 @@
     /* =========================
        TOOLBAR
     ========================= */
-    .users-toolbar {
+    .penjualan-toolbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -134,6 +157,7 @@
         color: #367fc5;
         border-radius: 11px;
         box-shadow: 0 5px 12px rgba(75, 140, 204, .15);
+        font-size: 17px;
     }
 
     /* =========================
@@ -162,6 +186,7 @@
     .search-icon {
         padding-left: 12px;
         color: #6396c3;
+        font-size: 15px;
     }
 
     .search-box input {
@@ -197,22 +222,23 @@
     /* =========================
        TABLE
     ========================= */
-    .users-table-wrapper {
+    .penjualan-table-wrapper {
         overflow-x: auto;
     }
 
-    .users-table {
+    .penjualan-table {
         width: 100%;
         margin: 0;
         border-collapse: collapse;
+        min-width: 900px;
     }
 
-    .users-table thead {
+    .penjualan-table thead {
         background: #dcecff;
     }
 
-    .users-table thead th {
-        padding: 16px 23px;
+    .penjualan-table thead th {
+        padding: 16px 20px;
         border: none;
         color: #3972a4;
         font-size: 11px;
@@ -222,21 +248,22 @@
         white-space: nowrap;
     }
 
-    .users-table tbody tr {
+    .penjualan-table tbody tr {
         border-bottom: 1px solid #e5eef7;
         transition: .2s ease;
     }
 
-    .users-table tbody tr:last-child {
+    .penjualan-table tbody tr:last-child {
         border-bottom: none;
     }
 
-    .users-table tbody tr:hover {
+    .penjualan-table tbody tr:hover {
         background: #f1f7ff;
     }
 
-    .users-table tbody td {
-        padding: 17px 23px;
+    .penjualan-table tbody td,
+    .penjualan-table tbody th {
+        padding: 15px 20px;
         border: none;
         color: #4d6983;
         font-size: 13px;
@@ -244,67 +271,108 @@
     }
 
     .number-column {
-        width: 60px;
+        width: 55px;
         color: #7e9ab4 !important;
         font-weight: 700;
     }
 
     /* =========================
-       USER
+       CASHIER
     ========================= */
     .user-info {
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 9px;
+        color: #426682;
+        font-weight: 700;
+        white-space: nowrap;
     }
 
-    .user-avatar {
-        width: 40px;
-        height: 40px;
+    .user-icon {
+        width: 32px;
+        height: 32px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 12px;
-        background: linear-gradient(135deg, #8ec2ef, #599bd7);
-        color: white;
-        font-size: 14px;
-        font-weight: 800;
-        box-shadow: 0 5px 12px rgba(80, 145, 204, .20);
-    }
-
-    .user-name {
-        color: #315a7c;
+        border-radius: 10px;
+        background: #e2f1ff;
+        color: #5795cc;
         font-size: 13px;
-        font-weight: 800;
-    }
-
-    .user-email {
-        color: #6f8ca6 !important;
-        font-size: 13px !important;
     }
 
     /* =========================
-       ROLE
+       DATE
     ========================= */
-    .role-badge {
+    .date-info {
+        color: #52728e;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+
+    /* =========================
+       TOTAL
+    ========================= */
+    .total-price {
+        color: #397db9;
+        font-weight: 800;
+        white-space: nowrap;
+    }
+
+    /* =========================
+       PAYMENT METHOD
+    ========================= */
+    .payment-badge {
         display: inline-flex;
         align-items: center;
-        gap: 7px;
-        padding: 7px 12px;
+        justify-content: center;
+        padding: 7px 13px;
         border-radius: 20px;
         background: #e2f0ff;
         color: #397db9;
         font-size: 11px;
         font-weight: 800;
+        white-space: nowrap;
     }
 
-    .role-badge::before {
+    /* =========================
+       STATUS
+    ========================= */
+    .status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 7px 13px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 800;
+        white-space: nowrap;
+    }
+
+    .status-badge::before {
         content: "";
         width: 7px;
         height: 7px;
         border-radius: 50%;
-        background: #5d9fda;
-        box-shadow: 0 0 0 3px #cfe6fb;
+    }
+
+    .badge-open {
+        background: #fff5dd;
+        color: #b58228;
+    }
+
+    .badge-open::before {
+        background: #e2ae42;
+        box-shadow: 0 0 0 3px #ffedbd;
+    }
+
+    .badge-complete {
+        background: #dff6ed;
+        color: #29906d;
+    }
+
+    .badge-complete::before {
+        background: #54b996;
+        box-shadow: 0 0 0 3px #c9eee1;
     }
 
     /* =========================
@@ -327,6 +395,21 @@
         text-decoration: none;
         transition: .2s ease;
         cursor: pointer;
+    }
+
+    .detail-btn {
+        width: auto;
+        padding: 0 14px;
+        background: #e2f1ff;
+        color: #4b91cc;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .detail-btn:hover {
+        background: #c9e5fc;
+        color: #337bb7;
+        transform: translateY(-2px);
     }
 
     .edit-btn {
@@ -379,10 +462,42 @@
         margin-bottom: 5px;
     }
 
-    .empty-description {
+    /* =========================
+       PAGINATION
+    ========================= */
+    .pagination-wrapper {
+        padding: 20px 24px;
+        background: #f8fbff;
+        border-top: 1px solid #e2edf7;
+    }
+
+    .pagination {
         margin: 0;
-        color: #8aa2b8;
-        font-size: 12px;
+        justify-content: flex-end;
+        gap: 5px;
+    }
+
+    .pagination .page-link {
+        border: 1px solid #d5e5f4;
+        color: #4b89c3;
+        background: white;
+        border-radius: 10px;
+        padding: 7px 12px;
+        font-size: 13px;
+        transition: .2s ease;
+    }
+
+    .pagination .page-link:hover {
+        background: #e0efff;
+        color: #397db9;
+        border-color: #c5def4;
+    }
+
+    .pagination .active .page-link {
+        background: #5d9fe0;
+        border-color: #5d9fe0;
+        color: white;
+        box-shadow: 0 5px 12px rgba(93, 159, 224, .25);
     }
 
     /* =========================
@@ -390,7 +505,7 @@
     ========================= */
     @media (max-width: 768px) {
 
-        .users-page {
+        .penjualan-page {
             padding: 22px 0 40px;
         }
 
@@ -403,11 +518,11 @@
             font-size: 28px;
         }
 
-        .create-user-btn {
+        .create-penjualan-btn {
             width: 100%;
         }
 
-        .users-toolbar {
+        .penjualan-toolbar {
             flex-direction: column;
             align-items: stretch;
         }
@@ -420,15 +535,23 @@
             width: 100%;
         }
 
-        .users-table thead th,
-        .users-table tbody td {
-            padding: 13px 15px;
+        .pagination {
+            justify-content: center;
         }
     }
 </style>
 
 
-<div class="container users-page">
+<div class="container penjualan-page">
+
+    
+    <?php if(session('errors')): ?>
+        <div class="alert custom-alert">
+            <?php echo e(session('errors')); ?>
+
+        </div>
+    <?php endif; ?>
+
 
     
     <div class="page-header">
@@ -436,25 +559,25 @@
         <div>
 
             <div class="page-label">
-                👥 User Management
+                🛒 Sales Management
             </div>
 
             <h1 class="page-title">
-                Halaman Users
+                Halaman Penjualan
             </h1>
 
             <p class="page-description">
-                Kelola pengguna dan hak akses sistem dengan mudah.
+                Kelola data penjualan dan transaksi dengan mudah.
             </p>
 
         </div>
 
 
-        <a href="<?php echo e(route('admin.users.create')); ?>"
-           class="create-user-btn">
+        <a href="<?php echo e(route('penjualan.create')); ?>"
+           class="create-penjualan-btn">
 
             <span>＋</span>
-            Create Users
+            Create Penjualan
 
         </a>
 
@@ -462,23 +585,23 @@
 
 
     
-    <div class="users-card">
+    <div class="penjualan-card">
 
         
-        <div class="users-toolbar">
+        <div class="penjualan-toolbar">
 
             <div class="toolbar-title">
 
                 <div class="toolbar-icon">
-                    👤
+                    🛒
                 </div>
 
-                <span>Daftar Pengguna</span>
+                <span>Daftar Penjualan</span>
 
             </div>
 
 
-            <form action="<?php echo e(route('admin.users')); ?>"
+            <form action="<?php echo e(route('penjualan.index')); ?>"
                   method="GET"
                   class="search-form">
 
@@ -492,7 +615,7 @@
                         type="text"
                         name="search"
                         value="<?php echo e(request('search')); ?>"
-                        placeholder="Search username or email..."
+                        placeholder="Cari penjualan..."
                     >
 
                     <button
@@ -509,47 +632,61 @@
 
 
         
-        <div class="users-table-wrapper">
+        <div class="penjualan-table-wrapper">
 
-            <table class="users-table">
+            <table class="penjualan-table">
 
                 <thead>
 
-                <tr>
+                    <tr>
 
-                    <th class="number-column">
-                        #
-                    </th>
+                        <th class="number-column">
+                            #
+                        </th>
 
-                    <th>
-                        Name
-                    </th>
+                        <th>
+                            Tanggal
+                        </th>
 
-                    <th>
-                        Email
-                    </th>
+                        <th>
+                            Kasir
+                        </th>
 
-                    <th>
-                        Role
-                    </th>
+                        <th>
+                            Total
+                        </th>
 
-                    <th>
-                        Aksi
-                    </th>
+                        <th>
+                            Metode
+                        </th>
 
-                </tr>
+                        <th>
+                            Status
+                        </th>
+
+                        <th width="220">
+                            Aksi
+                        </th>
+
+                    </tr>
 
                 </thead>
 
 
                 <tbody>
 
-                <?php $__empty_1 = true; $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                    <?php $__empty_1 = true; $__currentLoopData = $sales; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sale): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
 
                     <tr>
 
-                        <td class="number-column">
-                            <?php echo e($users->firstItem() + $loop->index); ?>
+                        <th scope="row" class="number-column">
+                            <?php echo e($sales->firstItem() + $loop->index); ?>
+
+                        </th>
+
+
+                        <td class="date-info">
+                            <?php echo e($sale->created_at->translatedFormat('d-m-Y H:i:s')); ?>
 
                         </td>
 
@@ -558,33 +695,53 @@
 
                             <div class="user-info">
 
-                                <div class="user-avatar">
-                                    <?php echo e(strtoupper(substr($user->name, 0, 1))); ?>
-
+                                <div class="user-icon">
+                                    👤
                                 </div>
 
-                                <div class="user-name">
-                                    <?php echo e($user->name); ?>
+                                <?php echo e($sale->user->name); ?>
 
-                                </div>
 
                             </div>
 
                         </td>
 
 
-                        <td class="user-email">
-                            <?php echo e($user->email); ?>
+                        <td>
+
+                            <strong class="total-price">
+                                Rp <?php echo e(number_format($sale->total_pembayaran)); ?>
+
+                            </strong>
 
                         </td>
 
 
                         <td>
 
-                            <span class="role-badge">
-                                <?php echo e($user->role->name); ?>
+                            <span class="payment-badge">
+                                <?php echo e($sale->metode_pembayaran); ?>
 
                             </span>
+
+                        </td>
+
+
+                        <td>
+
+                            <?php if($sale->status == 'OPEN'): ?>
+
+                                <span class="status-badge badge-open">
+                                    OPEN
+                                </span>
+
+                            <?php else: ?>
+
+                                <span class="status-badge badge-complete">
+                                    COMPLETED
+                                </span>
+
+                            <?php endif; ?>
 
                         </td>
 
@@ -594,30 +751,46 @@
                             <div class="action-wrapper">
 
                                 <a
-                                    href="<?php echo e(route('admin.users.edit', $user)); ?>"
-                                    class="action-btn edit-btn"
-                                    title="Edit User">
-                                    ✏️
+                                    href="<?php echo e(route('penjualan.show', $sale)); ?>"
+                                    class="action-btn detail-btn"
+                                    title="Detail Penjualan">
+                                    👁 Detail
                                 </a>
 
 
-                                <form
-                                    action="<?php echo e(route('admin.users.destroy', $user)); ?>"
-                                    method="POST"
-                                    class="d-inline">
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('view', $sale)): ?>
 
-                                    <?php echo csrf_field(); ?>
-                                    <?php echo method_field('DELETE'); ?>
+                                    <a
+                                        href="<?php echo e(route('penjualan.edit', $sale)); ?>"
+                                        class="action-btn edit-btn"
+                                        title="Edit Penjualan">
+                                        ✏️
+                                    </a>
 
-                                    <button
-                                        type="submit"
-                                        class="action-btn delete-btn"
-                                        title="Hapus User"
-                                        onclick="return confirm('Yakin hapus user ini?')">
-                                        🗑️
-                                    </button>
+                                <?php endif; ?>
 
-                                </form>
+
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('delete', $sale)): ?>
+
+                                    <form
+                                        action="<?php echo e(route('penjualan.destroy', $sale)); ?>"
+                                        method="POST"
+                                        class="d-inline">
+
+                                        <?php echo csrf_field(); ?>
+                                        <?php echo method_field('DELETE'); ?>
+
+                                        <button
+                                            type="submit"
+                                            class="action-btn delete-btn"
+                                            title="Hapus Penjualan"
+                                            onclick="return confirm('Apakah anda yakin akan menghapus penjualan ini?')">
+                                            🗑️
+                                        </button>
+
+                                    </form>
+
+                                <?php endif; ?>
 
                             </div>
 
@@ -625,33 +798,39 @@
 
                     </tr>
 
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
 
                     <tr>
 
-                        <td colspan="5" class="empty-state">
+                        <td colspan="7" class="empty-state">
 
                             <div class="empty-icon">
-                                👤
+                                🛒
                             </div>
 
                             <div class="empty-title">
-                                Belum ada pengguna
+                                Data penjualan tidak tersedia
                             </div>
-
-                            <p class="empty-description">
-                                Data pengguna belum tersedia.
-                            </p>
 
                         </td>
 
                     </tr>
 
-                <?php endif; ?>
+                    <?php endif; ?>
 
                 </tbody>
 
             </table>
+
+        </div>
+
+
+        
+        <div class="pagination-wrapper">
+
+            <?php echo e($sales->links()); ?>
+
 
         </div>
 
@@ -660,4 +839,4 @@
 </div>
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\laragon\www\dbsitnap\resources\views/users/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\laragon\www\siti\dbsitnap\resources\views\penjualan\index.blade.php ENDPATH**/ ?>
