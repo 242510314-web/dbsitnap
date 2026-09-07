@@ -11,7 +11,6 @@
             aria-label="Toggle navigation">
 
             <span class="navbar-toggler-icon"></span>
-
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -26,12 +25,14 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::is('admin/users') ? 'active' : '' }}"
-                        href="{{ route('admin.users') }}">
-                        Users
-                    </a>
-                </li>
+                @if(auth()->user()->role_id == 1)
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('admin/users') ? 'active' : '' }}"
+                            href="{{ route('admin.users') }}">
+                            Users
+                        </a>
+                    </li>
+                @endif
 
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('jenis') ? 'active' : '' }}"
@@ -64,11 +65,13 @@
                 </a>
 
                 <form action="{{ route('logout') }}" method="POST" class="m-0">
+
                     @csrf
 
                     <button type="submit" class="btn btn-danger me-2">
                         Logout
                     </button>
+
                 </form>
 
             </div>
